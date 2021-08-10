@@ -1,0 +1,43 @@
+﻿@page "/desafio8"
+
+<h3 class="text-center">Desafio Capítulo 8</h3>
+
+<div class="card border rounded">
+
+	<div class="card-body">
+
+		<div class="form-group">
+			<label>Distância a percorrer em quilômetros</label>
+			<input @bind="distancia" class="form-control" />
+		</div>
+
+		<div class="form-group">
+			<label>Velocidade média (km/hora)</label>
+			<input @bind="velocidade" class="form-control" />
+		</div>
+
+		<div class="form-group">
+			<label>Tempo estimado em horas</label>
+			<label class="form-control">@horas</label>
+		</div>
+
+	</div>
+
+	<div class="card-footer text-center">
+		<button @onclick="CalcularTempo" class="btn btn-outline-primary">Calcular tempo</button>
+	</div>
+
+</div>
+
+@code {
+
+	double distancia;
+	double velocidade;
+	double horas;
+
+	void CalcularTempo()
+	{
+		horas = distancia / velocidade;
+	}
+
+}

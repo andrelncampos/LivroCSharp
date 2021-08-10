@@ -1,0 +1,52 @@
+﻿@page "/notas"
+
+<h3 class="text-center">Notas</h3>
+
+<div class="form-group">
+	<label>Informe a primeira nota</label>
+	<input @bind="nota1" class="form-control" />
+</div>
+
+<div class="form-group">
+	<label>Informe a segunda nota</label>
+	<input @bind="nota2" class="form-control" />
+</div>
+
+<div class="form-group text-center">
+	<button @onclick="CalcularMedia" class="btn btn-outline-danger">Calcular média</button>
+</div>
+
+<div class="form-group">
+	<label>Sua média: <b>@media</b>. Sua situação: <b>@resultado</b> </label>
+</div>
+
+
+@code {
+
+	double nota1;
+	double nota2;
+	double media;
+	string resultado;
+
+	void CalcularMedia()
+	{
+		media = (nota1 + nota2) / 2;
+
+		if (media < 5)
+		{
+			resultado = "Reprovado";
+		}
+		else if (media >= 5 && media < 7)
+		{
+			resultado = "Recuperação";
+		}
+		else
+		{
+			resultado = "Aprovado";
+		}
+
+
+
+	}
+
+}

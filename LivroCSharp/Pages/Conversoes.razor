@@ -1,0 +1,42 @@
+﻿@page "/conversoes"
+
+<h3>Conversões</h3>
+
+<div class="card">
+	<div class="card-header text-center">
+		Calculadora de Caminhada
+	</div>
+
+	<div class="card-body">
+		<div class="text-white bg-info text-center border rounded">
+			Tempo de percurso
+		</div>
+		<div class="p-3">
+			Hora da Saída: @horaSaida h <br />
+			Distância percorrida: @distanciaKm km <br />
+			Tempo no percurso: @horaAndada h <br />
+			Hora da chegada: @horaChegada h <br />
+		</div>
+
+		<div class="text-center">
+			<button class="btn btn-outline-primary" @onclick="CalcularPercurso">Calcular</button>
+		</div>
+	</div>
+
+</div>
+
+@code {
+
+	int horaSaida = 10;
+	int horaChegada;
+	int horaAndada;
+	double distanciaKm = 9;
+	double kmPorHora = 4.5;
+
+	void CalcularPercurso()
+	{
+
+		horaAndada = (int)(distanciaKm / kmPorHora);
+		horaChegada = horaSaida + horaAndada;
+	}
+}

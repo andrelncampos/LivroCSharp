@@ -1,0 +1,38 @@
+﻿@page "/desafio9"
+
+<h3>Determina se número é par ou ímpar </h3>
+
+<div class="form-group">
+	<label>Informe um número</label>
+	<input @bind="original" class="form-control" />
+</div>
+
+<div class="form-group">
+	<button @onclick="Determinar" 
+			class="btn btn-outline-primary">Determinar
+	</button>
+</div>
+
+<div class="form-group">
+	<label>O número informado é @resultado</label>
+</div>
+
+@code {
+
+	int original;
+	string resultado;
+
+	void Determinar()
+	{
+		int r = original / 2;
+		if (original == (r * 2))
+		{
+			resultado = "par";
+		}
+		else
+		{
+			resultado = "impar";
+		}
+	}
+
+}
