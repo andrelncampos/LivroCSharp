@@ -1,0 +1,30 @@
+﻿@page "/testesstring"
+
+<h3 class="text-center">Testes com Strings</h3>
+<br />
+<button @onclick="TestarMatriz" class="btn btn-outline-primary">Testar String  como Matriz</button>
+<br />
+<br />
+<label>Veja o resultado dos testes no Console do navegador. Para ativá-lo, pressione <b>F12</b>.</label>
+
+@code {
+
+	void TestarMatriz()
+	{
+		string nome = "ABCDE";
+		string resultado = "";
+
+		for (int i = 0; i < nome.Length; i++)
+		{
+			char caractere = nome[i];
+
+			caractere++;
+
+			resultado = resultado + Convert.ToString(caractere);
+		}
+
+		Console.WriteLine(resultado);
+
+	}
+
+}

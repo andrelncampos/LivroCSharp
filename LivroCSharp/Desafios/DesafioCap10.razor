@@ -1,9 +1,55 @@
-﻿@page "/desafio10" 
-		
+﻿@page "/desafio10"
+
 <h3>Números primos entre 0 e 50</h3>
 
+<div class="form-group">
+	<label>Números primos</label>
+	<label class="form-control">@resultado</label>
+</div>
 
+<div class="form-group">
+	<button @onclick="Calcular" class="btn btn-outline-info">Calcular</button>
+</div>
 
 @code {
+	
+
+	string resultado = "";
+
+	void Calcular()
+	{
+
+		for (int i = 0; i < 51; i++)
+		{
+			int numeroAtual = i;
+			int numeroMenor = 2;
+			bool primo = true;
+
+			// Vou dividir o número por todos
+			// os números menores do que ele
+			while (numeroMenor < numeroAtual)
+			{
+				int r1 = numeroAtual / numeroMenor;
+				double r2 = numeroAtual / (double)numeroMenor;
+
+				// Se forem iguais, é divisível, então não é primo
+				if (r1 == r2)
+				{
+					primo = false;
+					break;
+				}
+
+				numeroMenor++;
+			}
+
+			// Se for primo, adiciona ao resultado
+			if (primo)
+			{
+				resultado += numeroAtual + " / ";
+			}
+
+		}
+
+	}
 
 }

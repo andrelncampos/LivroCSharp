@@ -1,0 +1,53 @@
+﻿@page "/predio"
+
+<h3 class="text-center">Prédio</h3>
+
+<table class="table border rounded">
+
+	@for (int i = 9; i >= 0; i--)
+	{
+		<tr>
+			<td>Andar: @i</td>
+			<td>@predio[i]</td>
+		</tr>
+	}
+
+</table>
+
+<hr class="bg-danger" />
+
+<div class="row">
+	<div class="col text-center">
+		<label>Morador</label>
+		<input @bind="morador" class="form-control" />
+	</div>
+
+	<div class="col text-center">
+		<label>Andar</label>
+		<input @bind="andar" class="form-control" />
+	</div>
+
+	<div class="col text-center">
+		<label>Ação</label><br />
+		<button @onclick="Alugar"
+				class="btn btn-outline-info">
+			Alugar
+		</button>
+	</div>
+
+</div>
+
+
+@code {
+
+	string[] predio = new string[10];
+
+	string morador;
+	int andar;
+
+	void Alugar()
+	{
+		predio[andar] = morador;
+	}
+
+}

@@ -1,0 +1,85 @@
+﻿@page "/desafio12"
+
+<h3 class="text-center">Corrida de carros</h3>
+
+<h4 class="text-center text-info">Carros na pista na volta @volta</h4>
+<table class="table">
+
+	@for (int i = 0; i < carros.Length; i++)
+	{
+		<tr>
+			<td>
+				<label class="font-weight-bolder text-primary">
+					Carro No. @i
+				</label>
+			</td>
+			<td>
+				<label class="font-weight-bolder text-info">
+					Km rodados: @carros[@i]
+				</label>
+			</td>
+		</tr>
+	}
+
+</table>
+
+<div class="row p-3">
+	<div class="col text-center">
+		<button @onclick="CorrerVolta"
+				class="btn btn-outline-primary">
+			Corre uma volta
+		</button>
+	</div>
+	<div class="col text-center">
+		<button @onclick="Reiniciar"
+				class="btn btn-outline-info">
+			Reiniciar corrida
+		</button>
+	</div>
+</div>
+
+@if (vencedor > 0)
+{
+	<h1 class="text-center text-danger p-3">
+		O vencedor foi o carro @vencedor
+	</h1>
+}
+
+@code {
+
+	int vencedor;
+	int volta;
+	int kmTotais = 20;
+	int[] carros = new int[5];
+
+
+	void CorrerVolta()
+	{
+
+		Random rnd = new Random();
+
+		for (int i = 0; i < carros.Length; i++)
+		{
+			carros[i] = carros[i] + rnd.Next(5);
+			if (carros[i] >= kmTotais)
+			{
+				vencedor = i;
+				break;
+			}
+		}
+
+		volta++;
+
+	}
+
+	void Reiniciar()
+	{
+		vencedor = 0;
+		volta = 0;
+		for (int i = 0; i < carros.Length; i++)
+		{
+			carros[i] = 0;
+		}
+	}
+
+}
