@@ -1,11 +1,22 @@
 ﻿@page "/testesstring"
 
 <h3 class="text-center">Testes com Strings</h3>
+
 <br />
-<button @onclick="TestarMatriz" class="btn btn-outline-primary">Testar String  como Matriz</button>
-<br />
-<br />
-<label>Veja o resultado dos testes no Console do navegador. Para ativá-lo, pressione <b>F12</b>.</label>
+<table class="table">
+	<tr>
+		<td><button @onclick="TestarMatriz" class="btn btn-outline-primary">Testar String  como Matriz</button></td>
+		<td><button @onclick="TestarBusca" class="btn btn-outline-primary">Testar Busca</button></td>
+	</tr>
+	<tr>
+		<td><button @onclick="TestarInsercao" class="btn btn-outline-primary">Testar Inserção</button></td>
+		<td><button @onclick="TestarBusca" class="btn btn-outline-primary">Testar Busca</button></td>
+	</tr>
+</table>
+
+<div class="p-3">
+	<label>Veja o resultado dos testes no Console do navegador. Para ativá-lo, pressione <b>F12</b>.</label>
+</div>
 
 @code {
 
@@ -26,5 +37,27 @@
 		Console.WriteLine(resultado);
 
 	}
+
+	void TestarBusca()
+	{
+		string verso = "No meio do caminho";
+
+		int p1 = verso.IndexOf("caminho");
+		int p2 = verso.IndexOf("pedra");
+
+		Console.WriteLine(p1);
+		Console.WriteLine(p2);
+	}
+
+
+	void TestarInsercao()
+	{
+		string mauConselho = "Se você é capaz de sonhar, desista dos seus sonhos.";
+		string bomConselho = mauConselho.Insert(27, "nunca ");
+
+		Console.WriteLine(mauConselho);
+		Console.WriteLine(bomConselho);
+	}
+
 
 }
