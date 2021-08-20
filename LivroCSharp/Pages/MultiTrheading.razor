@@ -1,0 +1,35 @@
+﻿@page "/multitrehading"
+
+@using System.Threading
+
+<h3>MultiTrheading</h3>
+
+<button @onclick="Ligar">Ligar</button>
+<button @onclick="Desligar">Desligar</button>
+
+@code {
+
+	static bool Parou;
+	static int i = 0;
+
+	async void Ligar()
+	{
+		Parou = false;
+		while (!Parou)
+		{
+			if (DateTime.Now.Second==0)
+			{
+				Console.WriteLine($"Tá na hora de chamar o sinal:{DateTime.Now.ToLongTimeString()}");
+			}
+
+			Console.WriteLine(++i);
+			await Task.Delay(1000);
+		}
+	}
+
+	void Desligar()
+	{
+		Parou = true;
+	}
+
+}
