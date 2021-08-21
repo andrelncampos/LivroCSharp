@@ -5,21 +5,55 @@
 <br />
 <table class="table">
 	<tr>
-		<td><button @onclick="TestarMatriz" class="btn btn-outline-primary">Testar String  como Matriz</button></td>
-		<td><button @onclick="TestarBusca" class="btn btn-outline-primary">Testar Busca</button></td>
+		<td>
+			<button @onclick="TestarMatriz" class="btn btn-outline-primary">
+				Testar String  como Matriz
+			</button>
+		</td>
+		<td>
+			<button @onclick="TestarBusca" class="btn btn-outline-primary">
+				Testar Busca
+			</button>
+		</td>
 	</tr>
 	<tr>
-		<td><button @onclick="TestarInsercao" class="btn btn-outline-primary">Testar Inserção</button></td>
-		<td><button @onclick="TestarRemocao" class="btn btn-outline-primary">Testar Remoção</button></td>
+		<td>
+			<button @onclick="TestarInsercao" class="btn btn-outline-primary">
+				Testar Inserção
+			</button>
+		</td>
+		<td>
+			<button @onclick="TestarRemocao" class="btn btn-outline-primary">
+				Testar Remoção
+			</button>
+		</td>
 	</tr>
 	<tr>
-		<td><button @onclick="TestarSubstituicao" class="btn btn-outline-primary">Testar Substituição</button></td>
-		<td><button @onclick="TestarRemocao" class="btn btn-outline-primary">???</button></td>
+		<td>
+			<button @onclick="TestarSubstituicao" class="btn btn-outline-primary">
+				Testar Substituição
+			</button>
+		</td>
+		<td>
+			<button @onclick="TestarConcatenacao" class="btn btn-outline-primary">
+				Testar Concatenação
+			</button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button @onclick="TestarInterpolacao" class="btn btn-outline-primary">
+				Testar Interpolação
+			</button>
+		</td>
+		<td></td>
 	</tr>
 </table>
 
 <div class="p-3">
-	<label>Veja o resultado dos testes no Console do navegador. Para ativá-lo, pressione <b>F12</b>.</label>
+	<label>
+		Veja o resultado dos testes no Console do navegador. Para ativá-lo, pressione <b>F12</b>.
+	</label>
 </div>
 
 @code {
@@ -75,10 +109,38 @@
 	void TestarSubstituicao()
 	{
 		string mauConselho = "Sou incompetente, incompreendido e infeliz";
-		string bomConselho = mauConselho.Replace("in","");
+		string bomConselho = mauConselho.Replace("in", "");
 
 		Console.WriteLine(mauConselho);
 		Console.WriteLine(bomConselho);
+	}
+
+	void TestarConcatenacao()
+	{
+		string s1 = "Bom ";
+		string s2 = "Dia";
+		string s3 = String.Concat(s1, s2);
+		Console.WriteLine(s3);
+	}
+
+	void TestarConcatenacao2()
+	{
+		string s1 = "Bom ";
+		string s2 = "Dia";
+		string s3 = s1 + s2;
+		Console.WriteLine(s3);
+	}
+
+	void TestarInterpolacao()
+	{
+		string nome = "João";
+		int idade = 29;
+		string esporte = "futebol";
+
+		string junto;
+		junto = $"Meu nome é {nome}, tenho {idade} anos e gosto de {esporte}";
+
+		Console.WriteLine(junto);
 	}
 
 }

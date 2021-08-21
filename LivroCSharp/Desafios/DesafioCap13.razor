@@ -1,0 +1,94 @@
+﻿@page "/desafio13"
+
+<h3 class="text-center">Criptografador</h3>
+
+<div class="row">
+	<div class="col-3 p-3 text-center">
+		<label>Chave</label>
+		<input @bind="Chave" class="form-control" />
+	</div>
+	<div class="col text-center">
+		<label>Informe aqui o texto original</label>
+		<textarea @bind="Original" class="form-control">
+		</textarea>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-3 p-3">
+		<button @onclick="Criptografar" class="btn btn-primary">
+			Criptografar
+		</button>
+	</div>
+	<div class="col-9 p-3">
+		<textarea @bind="Criptografado" class="form-control">
+		</textarea>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-3 p-3">
+		<button @onclick="Descriptografar" class="btn btn-primary">
+			Descriptografar
+		</button>
+	</div>
+	<div class="col-9 p-3">
+		<textarea @bind="Descriptografado" class="form-control">
+		</textarea>
+	</div>
+</div>
+
+
+@code {
+
+	string Original = "";
+	string Criptografado = "";
+	string Descriptografado = "";
+	string Chave = "";
+
+	void Criptografar()
+	{
+		string s = "";
+		int posicaoChave = 0;
+
+		foreach (char car in Original)
+		{
+			int pedacoChave = Convert.ToInt32(Chave[posicaoChave]);
+			int embaralhado = Convert.ToInt32(car) + pedacoChave;
+			s = s + (char)embaralhado;
+
+			posicaoChave++;
+
+			if (posicaoChave == Chave.Length)
+			{
+				posicaoChave = 0;
+			}
+		}
+
+		Criptografado = s;
+	}
+
+	void Descriptografar()
+	{
+		string s = "";
+		int posicaoChave = 0;
+
+		foreach (char car in Criptografado)
+		{
+			int pedacoChave = Convert.ToInt32(Chave[posicaoChave]);
+			int embaralhado = Convert.ToInt32(car) - pedacoChave;
+			s = s + (char)embaralhado;
+
+			posicaoChave++;
+
+			if (posicaoChave == Chave.Length)
+			{
+				posicaoChave = 0;
+			}
+		}
+
+		Descriptografado = s;
+	}
+
+}
