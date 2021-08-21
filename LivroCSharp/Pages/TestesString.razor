@@ -10,7 +10,11 @@
 	</tr>
 	<tr>
 		<td><button @onclick="TestarInsercao" class="btn btn-outline-primary">Testar Inserção</button></td>
-		<td><button @onclick="TestarBusca" class="btn btn-outline-primary">Testar Busca</button></td>
+		<td><button @onclick="TestarRemocao" class="btn btn-outline-primary">Testar Remoção</button></td>
+	</tr>
+	<tr>
+		<td><button @onclick="TestarSubstituicao" class="btn btn-outline-primary">Testar Substituição</button></td>
+		<td><button @onclick="TestarRemocao" class="btn btn-outline-primary">???</button></td>
 	</tr>
 </table>
 
@@ -59,5 +63,22 @@
 		Console.WriteLine(bomConselho);
 	}
 
+	void TestarRemocao()
+	{
+		string mauConselho = "A melhor forma de não se frustrar é nunca confiar";
+		string bomConselho = mauConselho.Remove(18, 4);
+
+		Console.WriteLine(mauConselho);
+		Console.WriteLine(bomConselho);
+	}
+
+	void TestarSubstituicao()
+	{
+		string mauConselho = "Sou incompetente, incompreendido e infeliz";
+		string bomConselho = mauConselho.Replace("in","");
+
+		Console.WriteLine(mauConselho);
+		Console.WriteLine(bomConselho);
+	}
 
 }
