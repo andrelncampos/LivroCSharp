@@ -1,0 +1,129 @@
+﻿@page "/minicalculadora"
+
+<h3 class="text-center">Mini Calculadora</h3>
+
+<div class="container p-5">
+
+	<div class="row">
+
+		<div class="col">
+			<input class="form-control" @bind="Valor1" />
+		</div>
+
+		<div class="col">
+			<input class="form-control" @bind="Valor2" />
+		</div>
+
+	</div>
+
+	<div class="row p-2">
+
+		<div class="col">
+			<button class="btn btn-outline-primary" @onclick="Somar">
+				+
+			</button>
+		</div>
+		
+		<div class="col">
+			<button class="btn btn-outline-info" @onclick="Subtrair">
+				-
+			</button>
+		</div>
+
+		<div class="col">
+			<button class="btn btn-outline-danger" @onclick="Multiplicar">
+				*
+			</button>
+		</div>
+
+		<div class="col">
+			<button class="btn btn-outline-success" @onclick="Dividir">
+				/
+			</button>
+		</div>
+
+	</div>
+
+	<div class="row p-2">
+		<div class="col text-center">
+			<button @onclick="Calcular" class="btn btn-primary">Calcular</button>
+		</div>
+	</div>
+
+	<div class="row p-2">
+		<div class="col display-1 text-center">
+			@Resultado
+		</div>
+	</div>
+
+	<div class="row p-2">
+		<div class="col text-center">
+			<h4>@Mensagem</h4>
+		</div>
+	</div>
+
+</div>
+
+@code {
+
+	double Valor1;
+	double Valor2;
+	int Operacao;
+	double Resultado;
+	string Mensagem;
+
+	void Somar()
+	{
+		Operacao = 1;
+	}
+
+	void Subtrair()
+	{
+		Operacao = 2;
+	}
+
+	void Multiplicar()
+	{
+		Operacao = 3;
+	}
+
+	void Dividir()
+	{
+		Operacao = 4;
+	}
+
+	void Calcular()
+	{
+
+		Mensagem = "";
+
+		try
+		{
+			if (Valor1 == 0 || Valor2 == 0)
+			{
+				throw new Exception("Os dois valores devem ser preenchidos");
+			}
+
+			switch (Operacao)
+			{
+				case 1:
+					Resultado = Valor1 + Valor2;
+					break;
+				case 2:
+					Resultado = Valor1 - Valor2;
+					break;
+				case 3:
+					Resultado = Valor1 * Valor2;
+					break;
+				default:
+					Resultado = Valor1 / Valor2;
+					break;
+			}
+		}
+		catch (Exception e)
+		{
+			Mensagem = e.Message;
+		}
+
+	}
+}

@@ -1,0 +1,75 @@
+﻿@page "/deuruim"
+
+<h3 class="text-center">Deu Ruim</h3>
+<h4 class="text-center">Dias da semana</h4>
+
+<div class="container">
+
+	<div class="form-group">
+		<label>Informe uma posição:</label>
+		<input @bind="Posicao"
+			   class="form-control"
+			   type="number" />
+	</div>
+
+	<div class="form-group text-center">
+		<button @onclick="Exibir"
+				class="btn btn-outline-primary">
+			Exibir dia
+		</button>
+	</div>
+
+	@if (Posicao >= 0 && Posicao <= Dias.Length)
+	{
+		<div class="form-group text-center">
+			<h1>O dia da semana é: @DiaSelecionado. </h1>
+			<h4>Você já realizou @Tentativas tentativas.</h4>
+		</div>
+	}
+
+	<div class="text-center text-danger p-5">
+		<label>@Mensagem</label>
+		<br />
+		<label>@MensagemOriginal</label>
+	</div>
+
+</div>
+
+@code {
+
+	string[] Dias = {
+		"Domingo",
+		"Segunda",
+		"Terça",
+		"Quarta",
+		"Quinta",
+		"Sexta",
+		"Sábado"
+	};
+
+	string DiaSelecionado = "";
+	string Mensagem;
+	string MensagemOriginal;
+	int Posicao;
+	int Tentativas;
+
+	void Exibir()
+	{
+		Mensagem = "";
+		MensagemOriginal = "";
+
+		try
+		{
+			DiaSelecionado = Dias[Posicao];
+		}
+		catch (Exception x)
+		{
+			Mensagem = "Não podemos exibir este dia no momento.";
+			MensagemOriginal = x.Message.ToString();
+		}
+		finally
+		{
+			Tentativas++;
+		}
+	}
+}
