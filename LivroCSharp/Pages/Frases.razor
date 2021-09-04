@@ -1,0 +1,82 @@
+﻿@page "/frases"
+
+<h3>Frases aleatórias</h3>
+
+<div class="p-3">
+	<button @onclick="GerarFrases" class="btn btn-outline-primary">
+		Gerar frases
+	</button>
+</div>
+
+<div class="p-3 border rounded">
+	@foreach (string s in FrasesLista)
+	{
+		<p>@s</p>
+	}
+</div>
+
+@code {
+
+	// AQUI ESTÃO AS PROPRIEDADES DO CLASSE Frases (componente)
+
+	// Propriedade é uma lista das frases. Começa zerada.
+	private List<string> FrasesLista = new List<string>();
+
+	// Propriedade com a matriz de partes iniciais
+	private string[] Sujeito = {
+		"João",
+		"Maria",
+		"André",
+		"Artur",
+		"Clara",
+		"Juan",
+		"Júlia"
+	};
+
+	// Propriedade com a matriz de partes intermediárias
+	private string[] Acao = {
+		" gosta de",
+		" odeia",
+		" compra",
+		" vende",
+		" ama",
+		" se liga em",
+		" nem liga para"
+	};
+
+	// Propriedade com a matriz de partes finais
+	private string[] Complemento = {
+		" abacate.",
+		" abóbora.",
+		" carro.",
+		" bicicleta.",
+		" sonhos.",
+		" algodão doce.",
+		" esportes."
+	};
+
+	void GerarFrases()
+	{
+		// Random vai nos permitir pegar números aleatórios
+		Random aleatorio = new Random();
+
+		// Limpo a lista, pois pode ser a segunda rodada
+		FrasesLista.Clear();
+
+		// Identifico o tamanho a priemeira matriz
+		int tamanho = Sujeito.Length;
+
+
+		// Baseado neste tamanho, defino o número de frases
+		for (int i = 0; i < tamanho; i++)
+		{
+			string frase = "";
+			frase += Sujeito[aleatorio.Next(tamanho)];
+			frase += Acao[aleatorio.Next(tamanho)];
+			frase += Complemento[aleatorio.Next(tamanho)];
+
+			FrasesLista.Add(frase);
+		}
+	}
+
+}

@@ -1,0 +1,61 @@
+﻿@page "/cadastroalunos"
+
+@using LivroCSharp.MinhasClasses
+
+<h3 class="text-center">Cadastro de Alunos</h3>
+
+<div class="container">
+	<div class="form-group">
+		<lable>Nome do aluno</lable>
+		<input @bind="Nome" class="form-control" />
+	</div>
+	<div class="form-group">
+		<lable>Ao cursando</lable>
+		<input @bind="Ano" class="form-control" />
+	</div>
+	<div class="form-group text-center">
+		<button @onclick="Adicionar" class="btn btn-outline-primary">Incluir aluno</button>
+	</div>
+</div>
+
+<table class="table">
+
+	<tr>
+		<td>Aluno</td>
+		<td>Ano cursando</td>
+	</tr>
+
+	@foreach (Aluno a in MeusAlunos)
+	{
+		if (a != null)
+		{
+			<tr>
+				<td>@a.Nome</td>
+				<td>@a.AnoCursando</td>
+			</tr>
+		}
+
+	}
+
+</table>
+
+@code {
+
+	private Aluno[] MeusAlunos { get; set; } = new Aluno[10];
+	private int Ponteiro { get; set; } = 0;
+	private string Nome { get; set; }
+	private int Ano { get; set; }
+
+	private void Adicionar()
+	{
+		MeusAlunos[Ponteiro] = new Aluno();
+		MeusAlunos[Ponteiro].Nome = Nome;
+		MeusAlunos[Ponteiro].AnoCursando = Ano;
+		Ponteiro++;
+		if (Ponteiro > MeusAlunos.Length - 1)
+		{
+			Ponteiro = 0;
+		}
+	}
+
+}
