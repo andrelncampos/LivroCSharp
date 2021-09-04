@@ -1,11 +1,17 @@
 ﻿@page "/frases"
 
+@using System.Threading
+
 <h3>Frases aleatórias</h3>
 
 <div class="p-3">
 	<button @onclick="GerarFrases" class="btn btn-outline-primary">
 		Gerar frases
 	</button>
+</div>
+
+<div>
+	<label>@Mensagem </label>
 </div>
 
 <div class="p-3 border rounded">
@@ -16,6 +22,8 @@
 </div>
 
 @code {
+
+	private string Mensagem = "";
 
 	// AQUI ESTÃO AS PROPRIEDADES DO CLASSE Frases (componente)
 
@@ -76,6 +84,10 @@
 			frase += Complemento[aleatorio.Next(tamanho)];
 
 			FrasesLista.Add(frase);
+			Console.WriteLine(DateTime.Now.ToString());
+			Mensagem = DateTime.Now.ToString();
+			this.StateHasChanged();
+			Thread.Sleep(1000);
 		}
 	}
 
