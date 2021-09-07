@@ -1,0 +1,90 @@
+﻿@page "/cadastroprodutos"
+
+@using LivroCSharp.MinhasClasses
+
+<div class="card">
+
+	<div class="card-header text-center">
+		<h1>Cadastro de produtos</h1>
+	</div>
+
+	<div class="card-body p-1">
+
+		<div class="form-group">
+			<label></label>
+			<input @bind="NomeProduto" class="form-control" />
+		</div>
+
+		<div class="form-group">
+			<label></label>
+			<input @bind="PrecoProduto" class="form-control"/>
+		</div>
+
+	</div>
+
+	<div class="card-footer text-center">
+		<button @onclick="IncluirProduto" class="btn btn-primary">Incluir</button>
+	</div>
+
+</div>
+
+@if (Produtos.Count > 0)
+{
+
+	<div class="container mt-4">
+		<div class="text-center text-info">Produtos cadastrados</div>
+		<table class="table">
+			<tr>
+				<td class="text-muted">Código</td>
+				<td class="text-muted">Nome</td>
+				<td class="text-muted">Preço</td>
+				<td class="text-muted">Exclusão</td>
+			</tr>
+			@foreach (Produto p in Produtos)
+			{
+				<tr>
+					<td>@p.Codigo</td>
+					<td>@p.Nome</td>
+					<td>@p.Preco.ToString("c")</td>
+					<td><button @onclick="ExcluirProduto" class="btn btn-danger">Excluir</button></td>
+				</tr>
+			}
+		</table>
+	</div>
+}
+
+@code {
+
+	// Repositório de produtos
+	private List<Produto> Produtos { get; set; } = new List<Produto>();
+
+	// Produto corrente
+	private string NomeProduto { get; set; }
+	private decimal PrecoProduto { get; set; }
+
+	private void IncluirProduto()
+	{
+		int codigo = 1;
+
+		if (Produtos.Count > 0)
+		{
+			codigo = Produtos[Produtos.Count - 1].Codigo + 1;
+		}
+
+		Produto NovoProduto = new Produto();
+		NovoProduto.Codigo = codigo;
+		NovoProduto.Nome = NomeProduto;
+		NovoProduto.Preco = PrecoProduto;
+
+		Produtos.Add(NovoProduto);
+
+		PrecoProduto = 0;
+		NomeProduto = "";
+	}
+
+	private void ExcluirProduto()
+	{
+		//Produtos.Remove(p);
+	}
+
+}
