@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LivroCSharp.MinhasClasses
+﻿namespace LivroCSharp.MinhasClasses
 {
 	public class Produto
 	{

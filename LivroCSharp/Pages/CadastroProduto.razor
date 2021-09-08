@@ -11,13 +11,13 @@
 	<div class="card-body p-1">
 
 		<div class="form-group">
-			<label></label>
+			<label>Produto</label>
 			<input @bind="NomeProduto" class="form-control" />
 		</div>
 
 		<div class="form-group">
-			<label></label>
-			<input @bind="PrecoProduto" class="form-control"/>
+			<label>Preço</label>
+			<input @bind="PrecoProduto" class="form-control" />
 		</div>
 
 	</div>
@@ -30,10 +30,12 @@
 
 @if (Produtos.Count > 0)
 {
-
 	<div class="container mt-4">
+
 		<div class="text-center text-info">Produtos cadastrados</div>
+
 		<table class="table">
+
 			<tr>
 				<td class="text-muted">Código</td>
 				<td class="text-muted">Nome</td>
@@ -46,10 +48,12 @@
 					<td>@p.Codigo</td>
 					<td>@p.Nome</td>
 					<td>@p.Preco.ToString("c")</td>
-					<td><button @onclick="ExcluirProduto" class="btn btn-danger">Excluir</button></td>
+					<td><button @onclick="@(() => ExcluirProduto(p))" class="btn btn-danger">Excluir</button></td>
 				</tr>
 			}
+
 		</table>
+
 	</div>
 }
 
@@ -82,9 +86,9 @@
 		NomeProduto = "";
 	}
 
-	private void ExcluirProduto()
+	private void ExcluirProduto(Produto p)
 	{
-		//Produtos.Remove(p);
+		Produtos.Remove(p);
 	}
 
 }
