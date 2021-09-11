@@ -1,95 +1,175 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-	<a class="navbar-brand" href="">LivroCSharp</a>
-	<button class="navbar-toggler" @onclick="ToggleNavMenu">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-</div>
+﻿<ul class="nav d-block" style="max-height:100vh;overflow-y:scroll;overflow-x:hidden;scrollbar-base-color:transparent;">
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="desafio16" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Desafio 16
+		</NavLink>
+	</li>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-	<ul class="nav flex-column">
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="cadastroprodutos" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Cadastro de Produtos
+		</NavLink>
+	</li>
 
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="cadastroprodutos" Match="NavLinkMatch.All">
-				<span class="oi oi-home" aria-hidden="true"></span> Cadastro de Produtos
-			</NavLink>
-		</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="frases" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Frases
+		</NavLink>
+	</li>
 
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="frases" Match="NavLinkMatch.All">
-				<span class="oi oi-home" aria-hidden="true"></span> Frases
-			</NavLink>
-		</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="desafio13" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Desafio
+		</NavLink>
+	</li>
 
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="desafio13" Match="NavLinkMatch.All">
-				<span class="oi oi-home" aria-hidden="true"></span> Desafio
-			</NavLink>
-		</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="cadastroalunos">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Castro alunos
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="metodo">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Método
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="conversoes">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Conversões
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="imc">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> IMC
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="notas">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Notas
+		</NavLink>
+	</li>
 
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="cadastroalunos">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Castro alunos
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="metodo">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Método
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="conversoes">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Conversões
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="imc">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> IMC
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="notas">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Notas
-			</NavLink>
-		</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="dadossimples">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Dados simples
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="predio">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Prédio
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="testesstring">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Testes com Strings
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="criptografia">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Criptografia
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="deuruim">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Deu Ruim
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="minicalculadora">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Deu Ruim
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="variaveis">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Variáveis
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="desafio16" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Desafio 16
+		</NavLink>
+	</li>
 
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="dadossimples">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Dados simples
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="predio">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Prédio
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="testesstring">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Testes com Strings
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="criptografia">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Criptografia
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="deuruim">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Deu Ruim
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="minicalculadora">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Deu Ruim
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="variaveis">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Variáveis
-			</NavLink>
-		</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="cadastroprodutos" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Cadastro de Produtos
+		</NavLink>
+	</li>
 
-	</ul>
-</div>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="frases" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Frases
+		</NavLink>
+	</li>
+
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="desafio13" Match="NavLinkMatch.All">
+			<span class="oi oi-home" aria-hidden="true"></span> Desafio
+		</NavLink>
+	</li>
+
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="cadastroalunos">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Castro alunos
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="metodo">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Método
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="conversoes">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Conversões
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="imc">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> IMC
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="notas">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Notas
+		</NavLink>
+	</li>
+
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="dadossimples">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Dados simples
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="predio">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Prédio
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="testesstring">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Testes com Strings
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="criptografia">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Criptografia
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="deuruim">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Deu Ruim
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="minicalculadora">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Deu Ruim
+		</NavLink>
+	</li>
+	<li class="nav-item px-3">
+		<NavLink class="nav-link" href="variaveis">
+			<span class="oi oi-list-rich" aria-hidden="true"></span> Variáveis
+		</NavLink>
+	</li>
+</ul>
 
 @code {
 	private bool collapseNavMenu = true;

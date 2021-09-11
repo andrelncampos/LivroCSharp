@@ -1,0 +1,135 @@
+﻿@page "/desafio16"
+@using LivroCSharp.MinhasClasses
+
+<div class="card">
+
+	<div class="card-header text-center">
+		<h1>Cadastro de produtos</h1>
+	</div>
+
+	<div class="card-body p-1">
+
+		<div class="form-group">
+			<label>Produto</label>
+			<input @bind="NomeProduto" class="form-control" />
+		</div>
+
+		<div class="form-group">
+			<label>Preço</label>
+			<input @bind="PrecoProduto" class="form-control" />
+		</div>
+
+	</div>
+
+	<div class="card-footer text-center">
+		<button @onclick="IncluirProduto" class="btn btn-primary">Incluir</button>
+	</div>
+
+</div>
+
+@if (Produtos.Count > 0)
+{
+	<div class="container mt-4">
+
+		<div class="text-center text-info">Produtos cadastrados. Filtro (@Filtro)</div>
+
+		<div class="row p-3">
+			<div class="col-6">
+				<input @bind="Filtro" class="form-control" />
+			</div>
+			<div class="col-3">
+				@*
+					Este botão serve para que o Blazor note a mudança na
+					propriedade Filtro e remonte a tela. Ele nem precisa
+					chamar uma função específica.
+				*@
+				<button class="btn btn-info">Filtrar</button>
+			</div>
+			<div class="col-3">
+				<button @onclick="LimparFiltro" class="btn btn-secondary">Limpar Filtro</button>
+			</div>
+		</div>
+
+		<table class="table">
+
+			<tr>
+				<td class="text-muted">Código</td>
+				<td class="text-muted">Nome</td>
+				<td class="text-muted">Preço</td>
+				<td class="text-muted">Exclusão</td>
+			</tr>
+
+			@foreach (Produto p in Produtos)
+			{
+				// Se filtro for diferente de "" é porque tem que filtrar
+				if (Filtro != "")
+				{
+					// Se eu não achar o Fitlro dentro do nome, vou para próximo
+					if (p.Nome.IndexOf(Filtro) < 0)
+					{
+						// Volto pro início e não exibo este item
+						continue;
+					}
+				}
+
+				<tr>
+					<td>@p.Codigo</td>
+					<td>@p.Nome</td>
+					<td>@p.Preco.ToString("c")</td>
+					<td><button @onclick="@(() => ExcluirProduto(p))" class="btn btn-danger">Excluir</button></td>
+				</tr>
+			}
+
+		</table>
+
+	</div>
+}
+
+@code {
+
+	// Repositório de produtos
+	private List<Produto> Produtos { get; set; } = new List<Produto>();
+
+	// Produto corrente
+	private string NomeProduto { get; set; }
+	private decimal PrecoProduto { get; set; }
+
+	/*
+		Propredade para conter o filtro. Como a proprieade é exibida
+		em tela, toda vez que ela for alterada, a tela é remontada.
+	*/
+	private string Filtro { get; set; } = "";
+
+	private void IncluirProduto()
+	{
+		int codigo = 1;
+
+		if (Produtos.Count > 0)
+		{
+			codigo = Produtos[Produtos.Count - 1].Codigo + 1;
+		}
+
+		Produto NovoProduto = new Produto();
+		NovoProduto.Codigo = codigo;
+		NovoProduto.Nome = NomeProduto;
+		NovoProduto.Preco = PrecoProduto;
+
+		Produtos.Add(NovoProduto);
+
+		PrecoProduto = 0;
+		NomeProduto = "";
+	}
+
+	private void ExcluirProduto(Produto p)
+	{
+		// Ao mudar o valor de Produtos a tela remonta
+		Produtos.Remove(p);
+	}
+
+	private void LimparFiltro()
+	{
+		// Zero o valor de Filtro, o que remonta a tela
+		Filtro = "";
+	}
+
+}

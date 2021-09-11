@@ -86,13 +86,6 @@
 			FrasesLista.Add(frase);
 			Console.WriteLine(DateTime.Now.ToString());
 			Mensagem = DateTime.Now.ToString();
-			
-			this.InvokeAsync(() =>
-			{
-				StateHasChanged();
-			});
-
-			Thread.Sleep(1000);
 		}
 	}
 
