@@ -1,0 +1,28 @@
+﻿@page "/pessoacadastra"
+
+@using static LivroCSharp.MinhasClasses.Pessoa
+
+<h3>Pessoa Cadastra</h3>
+
+<div class="container">
+
+	<div class="form-group">
+		<label>Nome</label>
+		<input @bind="Nome" class="form-control" />
+	</div>
+
+	<div class="form-group">
+		<label>Endereço</label>
+		<input @bind="Endereco" class="form-control" />
+	</div>
+
+	<div class="form-group">
+		<label>Idade</label>
+		<input @bind="Idade" class="form-control" />
+	</div>
+
+</div>
+
+@code {
+
+}

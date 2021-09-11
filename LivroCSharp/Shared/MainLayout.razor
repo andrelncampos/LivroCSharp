@@ -1,21 +1,30 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page m-0 p-0">
-	<div class="row w-100 m-0 p-0">
-		<div class="sidebar col-2 p-0">
+
+	<div class="row w-100 m-0 p-0 no-gutters">
+
+		<div class="sidebar col-auto p-0">
 			<NavMenu />
 		</div>
 
 		<div class="col">
+
 			<div class="main">
-				<div class="top-row px-4">
-					<a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+				
+				<div class="top-row p-0 m-0">
+					Livro C# START - Autor: André L N Campos. Disponível em 
+					<a href="https://www.amazon.com.br/" target="_blank">Amazon.com.br</a>
 				</div>
 
 				<div class="content px-4">
 					@Body
 				</div>
+
 			</div>
+
 		</div>
+
 	</div>
+
 </div>
