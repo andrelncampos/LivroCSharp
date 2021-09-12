@@ -1,0 +1,129 @@
+﻿@page "/repositorioprodutos"
+
+@using LivroCSharp.MinhasClasses
+@using static LivroCSharp.Data.Produtos
+
+<div class="card">
+
+	<div class="card-header text-center">
+		<h4>Cadastro de produtos - Repositório</h4>
+	</div>
+
+	<div class="card-body row p-1">
+
+		<div class="col">
+
+			<div class="form-group">
+				<label>Produto</label>
+				<input @bind="ProdutoCadastro.Nome" class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Preço</label>
+				<input @bind="ProdutoCadastro.Preco" class="form-control" />
+			</div>
+
+		</div>
+
+		<div class="col-auto d-flex align-content-center">
+			<button @onclick="IncluirProduto" class="btn btn-outline-primary">
+				@NomeBotao
+			</button>
+		</div>
+
+	</div>
+
+</div>
+
+@if (ProdutosTotal > 0)
+{
+	<div class="container mt-4">
+
+		<div class="text-center text-info">Produtos cadastrados. Filtro (@Filtro)</div>
+
+		<div class="row p-3">
+
+			<div class="col-6">
+				<input @bind="Filtro" class="form-control" />
+			</div>
+
+			<div class="col-3">
+				<button class="btn btn-info">Filtrar</button>
+			</div>
+
+			<div class="col-3">
+				<button @onclick="LimparFiltro" class="btn btn-secondary">Limpar Filtro</button>
+			</div>
+
+		</div>
+
+		<table class="table">
+
+			<tr>
+				<td class="text-muted">Código</td>
+				<td class="text-muted">Nome</td>
+				<td class="text-muted">Preço</td>
+				<td class="text-muted">Exclusão</td>
+			</tr>
+
+			@foreach (Produto p in ProdutosLista)
+			{
+				// Se filtro for diferente de "" é porque tem que filtrar
+				if (Filtro != "")
+				{
+					// Se eu não achar o Fitlro dentro do nome, vou para próximo
+					if (p.Nome.ToUpper().IndexOf(Filtro.ToUpper()) < 0)
+					{
+						// Volto pro início e não exibo este item
+						continue;
+					}
+				}
+
+				<tr>
+					<td>@p.Codigo</td>
+					<td>@p.Nome</td>
+					<td>@p.Preco.ToString("c")</td>
+					<td>
+
+						<button @onclick="@(() => AlterarProduto(p))" class="btn btn-info">
+							Alterar
+						</button>
+
+						<button @onclick="@(() => ProdutosExcluir(p.Codigo))" class="btn btn-danger">
+							Excluir
+						</button>
+
+					</td>
+				</tr>
+			}
+
+		</table>
+
+	</div>
+}
+
+@code {
+
+	private Produto ProdutoCadastro { get; set; } = new Produto();
+	private string Filtro { get; set; } = "";
+	private string NomeBotao { get; set; } = "Incluir";
+
+	private void IncluirProduto()
+	{
+		ProdutosIncluir(ProdutoCadastro);
+		ProdutoCadastro = new Produto();
+		NomeBotao = "Incluir";
+	}
+
+	private void LimparFiltro()
+	{
+		Filtro = "";
+	}
+
+	private void AlterarProduto(Produto p)
+	{
+		ProdutoCadastro = p;
+		NomeBotao = "Alterar";
+	}
+
+}
