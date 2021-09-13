@@ -1,0 +1,99 @@
+﻿@page "/geradoraleatorio"
+
+<h3>Gerador Aleatorio</h3>
+
+
+<button @onclick="Gerar">Gerar</button>
+
+
+
+@if (Lista.Count > 0)
+{
+
+	int vezes = Lista.Count / Maximo;
+	int sobra = (Lista.Count % Maximo);
+
+	for (int fora = 0; fora <= vezes; fora++)
+	{
+		int limiteMaximo = Maximo;
+		if (fora == vezes && sobra!=0)
+		{
+			limiteMaximo = sobra;
+		}
+
+		<p></p>
+		<p></p>
+		<p></p>
+		<table>
+			<tr>
+				<td>Território: @fora</td>
+				<td>Operadora: @Lista[fora * Maximo].Operadora</td>
+			</tr>
+		</table>
+
+		<table class="table">
+
+			<tr>
+				<td>Numero</td>
+				<td>Observação</td>
+			</tr>
+
+
+			@for (int dentro = 0; dentro < limiteMaximo; dentro++)
+			{
+				<tr>
+					<td>@Lista[(fora * Maximo) + dentro].Numero</td>
+					<td></td>
+				</tr>
+			}
+
+		</table>
+	}
+}
+
+@code {
+
+	int Maximo = 80;
+	List<Telefone> Lista = new List<Telefone>();
+	List<Faixa> Faixas = new List<Faixa>();
+
+
+	void Gerar()
+	{
+
+		Lista.Clear();
+		Random rnd = new Random();
+
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98836", Inicio = 1000, Fim = 1999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+
+		foreach (Faixa faixa in Faixas)
+		{
+
+			for (int i = faixa.Inicio; i <= faixa.Fim; i++)
+			{
+				string numero = faixa.Prefixo + "-" + i.ToString("0000");
+				Telefone tel = new Telefone { Operadora = faixa.Operadora, Numero = numero, Aleatorio = rnd.Next() };
+				Lista.Add(tel);
+			}
+
+		}
+
+	}
+
+	private class Telefone
+	{
+		public string Operadora { get; set; }
+		public string Numero { get; set; }
+		public int Aleatorio { get; set; }
+	}
+
+	private class Faixa
+	{
+		public string Operadora { get; set; }
+		public string Prefixo { get; set; }
+		public int Inicio { get; set; }
+		public int Fim { get; set; }
+	}
+
+}

@@ -1,4 +1,4 @@
-﻿@page "/repositorioprodutos"
+﻿@page "/desafio17"
 
 @using LivroCSharp.MinhasClasses
 @using static LivroCSharp.Data.Produtos
@@ -39,12 +39,14 @@
 {
 	<div class="container mt-4">
 
-		<div class="text-center text-info">Produtos cadastrados. Filtro (@Filtro)</div>
+		<div class="text-center text-info">
+			Produtos cadastrados. Filtro (@Filtro)
+		</div>
 
 		<div class="row p-3">
 
 			<div class="col-6">
-				<input @bind="ProdutosFiltro" class="form-control" />
+				<input @bind="Filtro" class="form-control" />
 			</div>
 
 			<div class="col-3">
@@ -52,7 +54,9 @@
 			</div>
 
 			<div class="col-3">
-				<button @onclick="LimparFiltro" class="btn btn-secondary">Limpar Filtro</button>
+				<button @onclick="ProdutosLimparFiltro" class="btn btn-secondary">
+					Limpar Filtro
+				</button>
 			</div>
 
 		</div>
@@ -68,6 +72,16 @@
 
 			@foreach (Produto p in ProdutosLista())
 			{
+				// Se filtro for diferente de "" é porque tem que filtrar
+				if (Filtro != "")
+				{
+					// Se eu não achar o Fitlro dentro do nome, vou para próximo
+					if (p.Nome.ToUpper().IndexOf(Filtro.ToUpper()) < 0)
+					{
+						// Volto pro início e não exibo este item
+						continue;
+					}
+				}
 
 				<tr>
 					<td>@p.Codigo</td>
@@ -75,11 +89,13 @@
 					<td>@p.Preco.ToString("c")</td>
 					<td>
 
-						<button @onclick="@(() => AlterarProduto(p))" class="btn btn-info">
+						<button @onclick="@(() => AlterarProduto(p))"
+								class="btn btn-info">
 							Alterar
 						</button>
 
-						<button @onclick="@(() => ProdutosExcluir(p.Codigo))" class="btn btn-danger">
+						<button @onclick="@(() => ProdutosExcluir(p.Codigo))"
+								class="btn btn-danger">
 							Excluir
 						</button>
 
@@ -95,8 +111,8 @@
 @code {
 
 	private Produto ProdutoCadastro { get; set; } = new Produto();
+	private string Filtro { get; set; } = "";
 	private string NomeBotao { get; set; } = "Incluir";
-	private string Filtro { get; set; }
 
 	private void IncluirProduto()
 	{
@@ -105,15 +121,15 @@
 		NomeBotao = "Incluir";
 	}
 
+	private void LimparFiltro()
+	{
+		Filtro = "";
+	}
+
 	private void AlterarProduto(Produto p)
 	{
 		ProdutoCadastro = p;
 		NomeBotao = "Alterar";
-	}
-
-	private void LimparFiltro()
-	{
-		Filtro = "";
 	}
 
 }

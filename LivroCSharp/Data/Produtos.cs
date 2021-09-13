@@ -6,18 +6,48 @@ namespace LivroCSharp.Data
 	public static class Produtos
 	{
 		private static List<Produto> Itens { get; set; }
+		public static string ProdutosFiltro { get; set; }
+
 		public static int ProdutosTotal { get => Itens.Count; }
-		public static List<Produto> ProdutosLista { get => Itens; }
+		public static List<Produto> ProdutosLista()
+		{
+			if(ProdutosFiltro!="")
+			{
+				return Itens;
+			}
+			else
+			{
+				List<Produto> listaFiltrada = new List<Produto>();
+				foreach(Produto p in Itens)
+				{
+					if(p.Nome.ToUpper().IndexOf(ProdutosFiltro.ToUpper()) < 0)
+					{
+						listaFiltrada.Add(p);
+					}
+				}
+				return listaFiltrada;
+			}
+		}
 
 		static Produtos()
 		{
 			Itens = new List<Produto>();
 		}
 
+		public static void ProdutosFiltrar(string filtro)
+		{
+			ProdutosFiltro = filtro;
+		}
+
+		public static void ProdutosLimparFiltro()
+		{
+			ProdutosFiltro = "";
+		}
+
 		public static void ProdutosIncluir(Produto p)
 		{
 
-			Produto produtoEncontrado = ProdutosLista.Find(
+			Produto produtoEncontrado = ProdutosLista().Find(
 					produtoLista => produtoLista.Codigo == p.Codigo
 				);
 			int codigo = 1;
@@ -31,32 +61,15 @@ namespace LivroCSharp.Data
 			{
 				// Produto não existia na lista
 				int total = ProdutosTotal;
-				
+
 				if (total > 0)
 				{
-					codigo = ProdutosLista[total - 1].Codigo + 1;
+					codigo = ProdutosLista()[total - 1].Codigo + 1;
 				}
 
 				p.Codigo = codigo;
 				Itens.Add(p);
 			}
-		}
-
-		public static bool ProdutosAlterar(Produto produtoAlterado)
-		{
-			bool retorno = false;
-
-			Produto produtoOriginal = Itens.Find(
-					produto => produto.Codigo == produtoAlterado.Codigo
-				);
-
-			if (produtoOriginal != null)
-			{
-				produtoOriginal = produtoAlterado;
-				retorno = true;
-			}
-
-			return retorno;
 		}
 
 		public static void ProdutosExcluir(int produtoCodigo)
