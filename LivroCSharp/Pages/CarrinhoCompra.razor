@@ -1,0 +1,72 @@
+﻿@page "/carrinhocompra"
+
+@using LivroCSharp.MinhasClasses
+@using static LivroCSharp.Data.Produtos
+@using static LivroCSharp.Data.Carrinho
+
+<h3>Carrinho Compra</h3>
+
+<div class="row">
+
+	@*Nesta DIV ficam os itens para venda*@
+	<div class="col-8">
+
+		<div class="row">
+			@foreach (Item item in ItensCarrinho)
+			{
+				<div class="col-4">
+					@item.Produto.Nome <br />
+					@item.Produto.Preco.ToString("c")<br />
+					<input @bind="item.Quantidade" class="form-control" type="number" />
+					<button class="btn btn-primary" @onclick="@(() => CarrinhoAdicionar(item.Produto, item.Quantidade))">Adicionar</button>
+				</div>
+			}
+		</div>
+
+	</div>
+
+	@*Nesta DIV ficam os itens que foram para o carrinho*@
+	<div class="col-4">
+		@{
+			decimal total = 0;
+		}
+		@foreach (Item itemCarinho in CarrinhoLista())
+		{
+
+			decimal totalItem = itemCarinho.Quantidade * itemCarinho.Produto.Preco;
+			total += totalItem;
+
+			<div class="row">
+				<div class="col">@itemCarinho.Produto.Nome</div>
+				<div class="col">@itemCarinho.Quantidade</div>
+				<div class="col text-right">@total.ToString("c")</div>
+			</div>
+
+		}
+		<div class="row text-right font-weight-bold">
+			Total: @total.ToString("c");
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+@code {
+
+	private static List<Item> ItensCarrinho = new List<Item>();
+
+	protected override void OnInitialized()
+	{
+		if (ItensCarrinho.Count == 0)
+		{
+			foreach (Produto produto in ProdutosLista())
+			{
+				ItensCarrinho.Add(new Item { Produto = produto, Quantidade = 0 });
+			}
+		}
+	}
+}
