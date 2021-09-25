@@ -1,27 +1,18 @@
 ﻿@page "/geradoraleatorio"
 
-<h3>Gerador Aleatorio</h3>
-
-
 <button @onclick="Gerar">Gerar</button>
-
-
-<h4>Aqui vai um título importante</h4>
-
-
-
-
 
 @if (Lista.Count > 0)
 {
 
 	int vezes = Lista.Count / Maximo;
 	int sobra = (Lista.Count % Maximo);
+	int mais = sobra == 0 ? 0 : 1;
 
-	for (int fora = 0; fora <= vezes; fora++)
+	for (int fora = 0; fora < (vezes + mais); fora++)
 	{
 		int limiteMaximo = Maximo;
-		if (fora == vezes && sobra!=0)
+		if (fora == vezes) // so vai acontecer se tiver sobra
 		{
 			limiteMaximo = sobra;
 		}
@@ -31,8 +22,9 @@
 		<p></p>
 		<table>
 			<tr>
+			</tr>
+			<tr>
 				<td>Território: @fora</td>
-				<td>Operadora: @Lista[fora * Maximo].Operadora</td>
 			</tr>
 		</table>
 
@@ -40,6 +32,7 @@
 
 			<tr>
 				<td>Numero</td>
+				<td>Operadora</td>
 				<td>Observação</td>
 			</tr>
 
@@ -48,13 +41,23 @@
 			{
 				<tr>
 					<td>@Lista[(fora * Maximo) + dentro].Numero</td>
-					<td></td>
+					<td>@Lista[(fora * Maximo) + dentro].Operadora</td>
+					<td>&nbsp;</td>
 				</tr>
 			}
 
 		</table>
 	}
 }
+
+@*<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true"
+					Data="@Lista" TItem="Telefone" >
+		<Columns>
+			<RadzenDataGridColumn TItem="Telefone" Property="Numero" />
+			<RadzenDataGridColumn TItem="Telefone" Property="Operadora" />
+			<RadzenDataGridColumn TItem="Telefone" Property="Observacao" />
+		</Columns>
+	</RadzenDataGrid>*@
 
 @code {
 
@@ -72,24 +75,70 @@
 		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98836", Inicio = 1000, Fim = 1999 });
 		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
 
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+
+		//Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98836", Inicio = 1000, Fim = 1050 });
+
 		foreach (Faixa faixa in Faixas)
 		{
 
 			for (int i = faixa.Inicio; i <= faixa.Fim; i++)
 			{
 				string numero = faixa.Prefixo + "-" + i.ToString("0000");
-				Telefone tel = new Telefone { Operadora = faixa.Operadora, Numero = numero, Aleatorio = rnd.Next() };
+				Telefone tel = new Telefone
+				{
+					Operadora = faixa.Operadora,
+					Numero = numero,
+					Observacao = ".",
+					Aleatorio = rnd.Next(10000)
+				};
 				Lista.Add(tel);
 			}
 
+
+
 		}
 
+		Lista = Lista.OrderBy(a => a.Aleatorio).ToList();
 	}
 
 	private class Telefone
 	{
 		public string Operadora { get; set; }
 		public string Numero { get; set; }
+		public string Observacao { get; set; }
 		public int Aleatorio { get; set; }
 	}
 
