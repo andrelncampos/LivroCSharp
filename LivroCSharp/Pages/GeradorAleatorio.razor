@@ -11,20 +11,18 @@
 
 	for (int fora = 0; fora < (vezes + mais); fora++)
 	{
+		int cartao = fora + 1;
 		int limiteMaximo = Maximo;
 		if (fora == vezes) // so vai acontecer se tiver sobra
 		{
 			limiteMaximo = sobra;
 		}
 
-		<p></p>
-		<p></p>
-		<p></p>
 		<table>
 			<tr>
 			</tr>
 			<tr>
-				<td>Território: @fora</td>
+				<td class="font-weight-bold">Território: @cartao.ToString("0000")</td>
 			</tr>
 		</table>
 
@@ -72,44 +70,230 @@
 		Lista.Clear();
 		Random rnd = new Random();
 
+		// Operadora Oi
 		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98836", Inicio = 1000, Fim = 1999 });
 		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98817", Inicio = 1000, Fim = 1999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98746", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98721", Inicio = 6000, Fim = 6999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98676", Inicio = 8000, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98642", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98633", Inicio = 4000, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98576", Inicio = 4000, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98410", Inicio = 8000, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98406", Inicio = 6000, Fim = 6999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98936", Inicio = 7000, Fim = 7999 });
 
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
-		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98832", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98931", Inicio = 0400, Fim = 0499 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98647", Inicio = 3900, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98812", Inicio = 9600, Fim = 9699 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98513", Inicio = 8900, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98407", Inicio = 5100, Fim = 5199 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "95941", Inicio = 9200, Fim = 9299 });
+		Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "95920", Inicio = 4100, Fim = 4199 });
 
-		//Faixas.Add(new Faixa { Operadora = "Oi", Prefixo = "98836", Inicio = 1000, Fim = 1050 });
+
+		// Operadora Claro
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99483", Inicio = 8000, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99474", Inicio = 6000, Fim = 6999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99459", Inicio = 2000, Fim = 2999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "9948", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99414", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99402", Inicio = 5000, Fim = 5999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99389", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99208", Inicio = 4000, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99127", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99097", Inicio = 0000, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99064", Inicio = 1000, Fim = 1999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99060", Inicio = 1000, Fim = 1999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99683", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99616", Inicio = 0000, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99584", Inicio = 6000, Fim = 6999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99552", Inicio = 0000, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99463", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99687", Inicio = 4000, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99844", Inicio = 4000, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99800", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99618", Inicio = 9000, Fim = 9999 });
+
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99457", Inicio = 4600, Fim = 4699 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "99149", Inicio = 0300, Fim = 0399 });
+		Faixas.Add(new Faixa { Operadora = "Claro", Prefixo = "97668", Inicio = 2800, Fim = 2899 });
+
+
+		// Operadora TIM
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98377", Inicio = 0000, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98275", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98275", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98239", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98230", Inicio = 2000, Fim = 2999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98181", Inicio = 4000, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98163", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98163", Inicio = 5000, Fim = 5999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98110", Inicio = 8000, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98101", Inicio = 0000, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98070", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98035", Inicio = 6000, Fim = 6999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "98922", Inicio = 7000, Fim = 7999 });
+
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "97978", Inicio = 8900, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "96547", Inicio = 1700, Fim = 1799 });
+		Faixas.Add(new Faixa { Operadora = "TIM", Prefixo = "96504", Inicio = 0300, Fim = 0399 });
+
+
+		// Operadora Vivo
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99959", Inicio = 1000, Fim = 1999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99952", Inicio = 8000, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99936", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99915", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99634", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99561", Inicio = 5000, Fim = 5999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99524", Inicio = 9000, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99524", Inicio = 2000, Fim = 2999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99519", Inicio = 0000, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99510", Inicio = 5000, Fim = 5999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99230", Inicio = 2000, Fim = 2999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99142", Inicio = 3000, Fim = 3999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99787", Inicio = 6000, Fim = 6999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99776", Inicio = 2000, Fim = 2999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99723", Inicio = 7000, Fim = 7999 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "99102", Inicio = 3000, Fim = 3999 });
+
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "9528", Inicio = 7800, Fim = 7899 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "97200", Inicio = 7100, Fim = 7199 });
+		Faixas.Add(new Faixa { Operadora = "Vivo", Prefixo = "97198", Inicio = 1300, Fim = 1399 });
+
+		// Operadora NEXTEL
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97896", Inicio = 3700, Fim = 3799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97896", Inicio = 3000, Fim = 3099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97894", Inicio = 0300, Fim = 0399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97893", Inicio = 2000, Fim = 2099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97887", Inicio = 5000, Fim = 5099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97887", Inicio = 1100, Fim = 1199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97882", Inicio = 3800, Fim = 3899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97879", Inicio = 7500, Fim = 7599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97873", Inicio = 8700, Fim = 8799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97871", Inicio = 3500, Fim = 3599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97870", Inicio = 9800, Fim = 9899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97867", Inicio = 7000, Fim = 7099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97854", Inicio = 6100, Fim = 6199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97850", Inicio = 5200, Fim =5299  });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97849", Inicio = 3700, Fim = 3799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97843", Inicio = 5100, Fim =  5199});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97841", Inicio = 4200, Fim = 4299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97834", Inicio = 6500, Fim = 6599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97830", Inicio = 4200, Fim = 4299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97829", Inicio = 3100, Fim = 3199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97822", Inicio =4800 , Fim = 4899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97820", Inicio =3800 , Fim = 3899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97815", Inicio =8300 , Fim = 8399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97814", Inicio =4300 , Fim = 4399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97806", Inicio = 9400, Fim = 9499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97806", Inicio = 1000, Fim = 1099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97804", Inicio = 2700, Fim = 2799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97791", Inicio = 8500, Fim = 8599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97783", Inicio = 1000, Fim = 9099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97777", Inicio = 8900, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97777", Inicio = 0400, Fim = 0499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97775", Inicio = 2900, Fim = 2999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97774", Inicio = 7400, Fim = 7499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97770", Inicio = 3500, Fim = 3599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97768", Inicio = 8000, Fim = 8099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97762", Inicio = 1500, Fim = 1599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97756", Inicio = 8400, Fim = 8499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97754", Inicio = 6500, Fim = 6599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97753", Inicio = 9400, Fim = 9499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97751", Inicio = 6600, Fim = 6699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97749", Inicio = 7100, Fim = 7199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97749", Inicio = 6000, Fim = 6099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97749", Inicio = 5300, Fim = 5399});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97747", Inicio = 1900, Fim = 1999});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97743", Inicio = 0100, Fim = 0199});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97742", Inicio = 4900, Fim = 4999});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97742", Inicio = 4100, Fim = 4199});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97733", Inicio = 8500, Fim = 8599});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97731", Inicio = 1500, Fim = 1599});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97729", Inicio = 3500, Fim = 3599});
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97717", Inicio = 7000, Fim = 7099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97712", Inicio = 1300, Fim = 1399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97708", Inicio = 7000, Fim = 7099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97093", Inicio = 7600, Fim = 7699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97090", Inicio = 3000, Fim = 3099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97089", Inicio = 5900, Fim = 5999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97086", Inicio = 8400, Fim = 8499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97086", Inicio = 5400, Fim = 5499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97082", Inicio = 2400, Fim = 2499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97080", Inicio = 0400, Fim = 0499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97072", Inicio = 1400, Fim = 1499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97070", Inicio = 0200, Fim = 0299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97068", Inicio = 8000, Fim = 8099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97065", Inicio = 3300, Fim = 3399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97065", Inicio = 0700, Fim = 0799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97064", Inicio = 6000, Fim = 6099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97063", Inicio = 6400, Fim = 6499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97063", Inicio = 1800, Fim = 1899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97061", Inicio = 4200, Fim = 4299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97053", Inicio = 7300, Fim = 7399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97051", Inicio = 7600, Fim = 7699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97045", Inicio = 6400, Fim = 6499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97041", Inicio = 1600, Fim = 1699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97039", Inicio = 7400, Fim = 7499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97033", Inicio = 4100, Fim = 4199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97033", Inicio = 2300, Fim = 2399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97032", Inicio = 5000, Fim = 5099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97031", Inicio = 8500, Fim = 8599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97031", Inicio = 7600, Fim = 7699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97027", Inicio = 9900, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97027", Inicio = 2500, Fim = 2599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97025", Inicio = 7300, Fim = 7399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97025", Inicio = 6400, Fim = 6499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97024", Inicio = 8000, Fim = 8099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97023", Inicio = 3000, Fim = 3099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97011", Inicio = 8900, Fim = 8999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97000", Inicio = 3000, Fim = 3099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96499", Inicio = 8600, Fim = 8699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96495", Inicio = 0300, Fim = 0399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96493", Inicio = 5500, Fim = 5599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96493", Inicio = 2200, Fim = 2299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96486", Inicio = 4300, Fim = 4399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96484", Inicio = 2700, Fim = 2799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96481", Inicio = 4200, Fim = 4299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96480", Inicio = 6500, Fim = 6599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96480", Inicio = 6400, Fim = 6499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96477", Inicio = 8800, Fim = 8899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96474", Inicio = 7600, Fim = 7699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96468", Inicio = 7800, Fim = 7899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96467", Inicio = 2800, Fim = 2899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96464", Inicio = 0900, Fim = 0999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96461", Inicio = 4200, Fim = 4299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96458", Inicio = 6500, Fim = 6599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96457", Inicio = 4800, Fim = 4899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96455", Inicio = 9400, Fim = 9499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96451", Inicio = 6400, Fim = 6499 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96451", Inicio = 5000, Fim = 5099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96448", Inicio = 4900, Fim = 4999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96441", Inicio = 5100, Fim = 5199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96440", Inicio = 9900, Fim = 9999 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96440", Inicio = 1700, Fim = 1799 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96438", Inicio = 3200, Fim = 3299 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96438", Inicio = 1100, Fim = 1199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96435", Inicio = 5100, Fim = 5199 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96435", Inicio = 3500, Fim = 3599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96435", Inicio = 3300, Fim = 3399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96433", Inicio = 3600, Fim = 3699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96427", Inicio = 0300, Fim = 0399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96423", Inicio = 8800, Fim = 8899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96420", Inicio = 5000, Fim = 5099 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96416", Inicio = 2500, Fim = 2599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96413", Inicio = 3300, Fim = 3399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96409", Inicio = 2300, Fim = 2399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96408", Inicio = 8800, Fim = 8899 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96405", Inicio = 0300, Fim = 0399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "96401", Inicio = 1500, Fim = 1599 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "99457", Inicio = 4600, Fim = 4699 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "99149", Inicio = 0300, Fim = 0399 });
+		Faixas.Add(new Faixa { Operadora = "Nextel", Prefixo = "97668", Inicio = 2800, Fim = 2899 });		
+
 
 		foreach (Faixa faixa in Faixas)
 		{
@@ -122,7 +306,7 @@
 					Operadora = faixa.Operadora,
 					Numero = numero,
 					Observacao = ".",
-					Aleatorio = rnd.Next(10000)
+					Aleatorio = rnd.Next(100000)
 				};
 				Lista.Add(tel);
 			}

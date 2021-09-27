@@ -4,29 +4,58 @@
 @using static LivroCSharp.Data.Produtos
 @using static LivroCSharp.Data.Carrinho
 
-<h3>Carrinho Compra</h3>
+<h3 class="text-center bg-info text-white">Carrinho Compra</h3>
 
+
+@*Nesta DIV ficam os itens para venda*@
 <div class="row">
+	@foreach (Item item in ItensCarrinho)
+	{
+		<div class="col-3">
 
-	@*Nesta DIV ficam os itens para venda*@
-	<div class="col-8">
+			<div class="card m-2">
 
-		<div class="row">
-			@foreach (Item item in ItensCarrinho)
-			{
-				<div class="col-4">
-					@item.Produto.Nome <br />
-					@item.Produto.Preco.ToString("c")<br />
-					<input @bind="item.Quantidade" class="form-control" type="number" />
-					<button class="btn btn-primary" @onclick="@(() => CarrinhoAdicionar(item.Produto, item.Quantidade))">Adicionar</button>
+				<div class="card-title text-center font-weight-bold p-1">
+					@item.Produto.Nome
 				</div>
-			}
+
+				<div class="card-body text-right p-1">
+					<div>@item.Produto.Preco.ToString("c")</div>
+					<div>
+						<input @bind="item.Quantidade"
+							   class="form-control text-right"
+							   type="number"
+							   />
+					</div>
+				</div>
+
+				<div class="card-footer text-center p-1">
+					<button class="btn btn-primary"
+							@onclick="@(() => CarrinhoAdicionar(item.Produto, item.Quantidade))">
+						Adicionar
+					</button>
+				</div>
+
+			</div>
+
+		</div>
+	}
+</div>
+
+
+@*Nesta DIV ficam os itens que foram para o carrinho*@
+<div class="card border m-2">
+	<div class="card-header text-center">
+		Sua conta
+	</div>
+	<div class="card-body">
+
+		<div class="row text-center text-info">
+			<div class="col">Produto</div>
+			<div class="col">Quantidade</div>
+			<div class="col text-right">Valor total</div>
 		</div>
 
-	</div>
-
-	@*Nesta DIV ficam os itens que foram para o carrinho*@
-	<div class="col-4">
 		@{
 			decimal total = 0;
 		}
@@ -36,20 +65,17 @@
 			decimal totalItem = itemCarinho.Quantidade * itemCarinho.Produto.Preco;
 			total += totalItem;
 
-			<div class="row">
+			<div class="row border-bottom">
 				<div class="col">@itemCarinho.Produto.Nome</div>
-				<div class="col">@itemCarinho.Quantidade</div>
-				<div class="col text-right">@total.ToString("c")</div>
+				<div class="col text-center">@itemCarinho.Quantidade</div>
+				<div class="col text-right">@totalItem.ToString("c")</div>
 			</div>
 
 		}
-		<div class="row text-right font-weight-bold">
-			Total: @total.ToString("c");
-		</div>
 	</div>
-
-
-
+	<div class=" card-footer text-right font-weight-bold">
+		Total: @total.ToString("c")
+	</div>
 </div>
 
 
@@ -61,6 +87,17 @@
 
 	protected override void OnInitialized()
 	{
+		ProdutosIncluir(new Produto { Nome = "Computador Core i3", Preco = 2500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i5", Preco = 3500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i7", Preco = 5500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i9", Preco = 9500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i3", Preco = 2500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i5", Preco = 3500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i7", Preco = 5500 });
+		ProdutosIncluir(new Produto { Nome = "Computador Core i9", Preco = 9500 });
+
+
+
 		if (ItensCarrinho.Count == 0)
 		{
 			foreach (Produto produto in ProdutosLista())
