@@ -6,10 +6,10 @@
 
 <h3 class="text-center bg-info text-white">Carrinho Compra</h3>
 
-
 @*Nesta DIV ficam os itens para venda*@
 <div class="row">
-	@foreach (Item item in ItensCarrinho)
+
+	@foreach (Item item in Prateleira)
 	{
 		<div class="col-3">
 
@@ -24,14 +24,14 @@
 					<div>
 						<input @bind="item.Quantidade"
 							   class="form-control text-right"
-							   type="number"
-							   />
+							   type="number" />
 					</div>
 				</div>
 
 				<div class="card-footer text-center p-1">
 					<button class="btn btn-primary"
-							@onclick="@(() => CarrinhoAdicionar(item.Produto, item.Quantidade))">
+							@onclick=
+							"()=>CarrinhoAdicionar(item.Produto, item.Quantidade)">
 						Adicionar
 					</button>
 				</div>
@@ -45,9 +45,11 @@
 
 @*Nesta DIV ficam os itens que foram para o carrinho*@
 <div class="card border m-2">
+
 	<div class="card-header text-center">
 		Sua conta
 	</div>
+
 	<div class="card-body">
 
 		<div class="row text-center text-info">
@@ -59,6 +61,7 @@
 		@{
 			decimal total = 0;
 		}
+
 		@foreach (Item itemCarinho in CarrinhoLista())
 		{
 
@@ -73,36 +76,71 @@
 
 		}
 	</div>
+
 	<div class=" card-footer text-right font-weight-bold">
 		Total: @total.ToString("c")
 	</div>
+
 </div>
-
-
-
 
 @code {
 
-	private static List<Item> ItensCarrinho = new List<Item>();
+	private static List<Item> Prateleira = new List<Item>();
 
+	// Roda apenas na carga do componente
 	protected override void OnInitialized()
 	{
-		ProdutosIncluir(new Produto { Nome = "Computador Core i3", Preco = 2500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i5", Preco = 3500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i7", Preco = 5500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i9", Preco = 9500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i3", Preco = 2500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i5", Preco = 3500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i7", Preco = 5500 });
-		ProdutosIncluir(new Produto { Nome = "Computador Core i9", Preco = 9500 });
+		// Roda se não tem produtos cadastrados
+		if (ProdutosTotal == 0)
+		{
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Basico",
+				Preco = 2500
+			});
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Intermediário",
+				Preco = 3500
+			});
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Avançado",
+				Preco = 5500
+			});
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Designer",
+				Preco = 7500
+			});
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Gamer",
+				Preco = 9500
+			});
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Engenheiro",
+				Preco = 10500
+			});
+			ProdutosIncluir(new Produto
+			{
+				Nome = "Computador Físico",
+				Preco = 13500
+			});
 
+		}
 
-
-		if (ItensCarrinho.Count == 0)
+		// Roda se a prateleira está vazia
+		if (Prateleira.Count == 0)
 		{
 			foreach (Produto produto in ProdutosLista())
 			{
-				ItensCarrinho.Add(new Item { Produto = produto, Quantidade = 0 });
+				Prateleira.Add(new Item
+				{
+					Produto = produto,
+					Quantidade = 0
+				});
 			}
 		}
 	}

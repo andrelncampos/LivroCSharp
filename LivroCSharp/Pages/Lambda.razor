@@ -1,0 +1,42 @@
+﻿@page "/lambda"
+<h1>Lambda</h1>
+<h3 class="p-5">@Mensagem</h3>
+
+@{
+	string minhaMensagem = "Esta mensagem é personalizada";
+}
+<div class="p-2">
+	<button @onclick="MostrarMensagem"
+			class="btn btn-primary p-2">
+		MostrarMensagem
+	</button>
+</div>
+
+<div class="p-2">
+	<button @onclick="() => MensagemCustomizada(minhaMensagem)"
+			class="btn btn-success p-2">
+		MostrarMensagem
+	</button>
+</div>
+
+@code {
+
+	protected string Mensagem { get; set; }
+
+	protected void MostrarMensagem()
+	{
+		Mensagem = "Esta é a mensagem exibida por MostrarMensagem()";
+	}
+
+	protected void MensagemCustomizada(string mensagem)
+	{
+		Mensagem = mensagem;
+	}
+
+	protected int Soma(int a, int b)
+	{
+		return a + b;
+	}
+
+	
+}

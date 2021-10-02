@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using LivroCSharp.MinhasClasses;
 
 namespace LivroCSharp.Data
@@ -10,7 +7,6 @@ namespace LivroCSharp.Data
 	{
 
 		private static List<Item> Itens { get; set; } = new List<Item>();
-
 
 		public static List<Item> CarrinhoLista()
 		{

@@ -23,7 +23,9 @@
 	</div>
 
 	<div class="card-footer text-center">
-		<button @onclick="IncluirProduto" class="btn btn-primary">Incluir</button>
+		<button @onclick="IncluirProduto" class="btn btn-primary">
+			Incluir
+		</button>
 	</div>
 
 </div>
@@ -48,7 +50,12 @@
 					<td>@p.Codigo</td>
 					<td>@p.Nome</td>
 					<td>@p.Preco.ToString("c")</td>
-					<td><button @onclick="@(() => ExcluirProduto(p))" class="btn btn-danger">Excluir</button></td>
+					<td>
+						<button @onclick="() => ExcluirProduto(p)"
+								class="btn btn-danger">
+							Excluir
+						</button>
+					</td>
 				</tr>
 			}
 
@@ -90,5 +97,4 @@
 	{
 		Produtos.Remove(p);
 	}
-
 }
