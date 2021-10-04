@@ -30,8 +30,7 @@
 
 				<div class="card-footer text-center p-1">
 					<button class="btn btn-primary"
-							@onclick=
-							"()=>CarrinhoAdicionar(item.Produto, item.Quantidade)">
+							@onclick="()=>CarrinhoAdicionar(item.Produto, item.Quantidade)">
 						Adicionar
 					</button>
 				</div>
@@ -56,6 +55,7 @@
 			<div class="col">Produto</div>
 			<div class="col">Quantidade</div>
 			<div class="col text-right">Valor total</div>
+			<div class="col text-right"></div>
 		</div>
 
 		@{
@@ -68,10 +68,17 @@
 			decimal totalItem = itemCarinho.Quantidade * itemCarinho.Produto.Preco;
 			total += totalItem;
 
-			<div class="row border-bottom">
+			<div class="row border-bottom align-items-center">
 				<div class="col">@itemCarinho.Produto.Nome</div>
 				<div class="col text-center">@itemCarinho.Quantidade</div>
 				<div class="col text-right">@totalItem.ToString("c")</div>
+				<div class="col text-center">
+					<button class="btn btn-danger"
+							@onclick="() => CarrinhoExcluir(itemCarinho.Produto)"
+							>
+						 X 
+					</button>
+				</div>
 			</div>
 
 		}
@@ -100,7 +107,7 @@
 			});
 			ProdutosIncluir(new Produto
 			{
-				Nome = "Computador Intermediário",
+				Nome = "Computador Mediano",
 				Preco = 3500
 			});
 			ProdutosIncluir(new Produto
