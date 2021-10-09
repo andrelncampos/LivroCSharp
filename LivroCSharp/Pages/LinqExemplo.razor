@@ -2,9 +2,18 @@
 
 @using LivroCSharp.MinhasClasses
 
-<h1 class="text-center p-3">Linq Exemplos</h1>
+<h2 class="text-center p-3">Lista de Funcionários</h2>
+
+<select name="select" @onchange="Selecionar" class="form-control">
+	<option value="Todos">Todos</option>
+	@foreach (string opcao in Departamentos)
+	{
+		<option value="@opcao">@opcao</option>
+	}
+</select>
 
 <table class="table">
+	
 	<thead>
 		<tr>
 			<th>Nome</th>
@@ -13,6 +22,7 @@
 			<th>Salário</th>
 		</tr>
 	</thead>
+
 	@foreach (Funcionario f in Funcionarios)
 	{
 		<tr>
@@ -22,16 +32,43 @@
 			<td>@f.Salario</td>
 		</tr>
 	}
+
 </table>
 
 @code {
 
 	protected BancoDados MeuBanco = new BancoDados();
 	protected List<Funcionario> Funcionarios { get; set; }
+	protected List<string> Departamentos { get; set; }
+
 
 	protected override void OnInitialized()
 	{
-		Funcionarios = MeuBanco.Funcionarios.ToList();
+		Funcionarios = MeuBanco.Funcionarios
+						.ToList();
+
+		Departamentos = MeuBanco.Funcionarios
+						.Select(s => s.Departamento)
+						.Distinct()
+						.ToList();
+	}
+
+	protected void Selecionar(ChangeEventArgs e)
+	{
+		string opcao = e.Value.ToString();
+
+		if (opcao.Equals("Todos"))
+		{
+			Funcionarios = MeuBanco.Funcionarios
+						.ToList();
+		}
+		else
+		{
+			Funcionarios = MeuBanco.Funcionarios
+						.Where(w => w.Departamento.Equals(opcao))
+						.ToList();
+		}
+
 	}
 
 }

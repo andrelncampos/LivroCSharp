@@ -100,6 +100,7 @@ namespace LivroCSharp.MinhasClasses
 			};
 			Funcionarios.Add(f10);
 		}
+
 	}
 
 	public class Funcionario
@@ -108,6 +109,12 @@ namespace LivroCSharp.MinhasClasses
 		public string Departamento { get; set; }
 		public decimal Salario { get; set; }
 		public string Genero { get; set; }
+	}
+
+	public class Exemplo
+	{
+		public string Nome { get; set; }
+		public string Departamento { get; set; }
 	}
 
 }
