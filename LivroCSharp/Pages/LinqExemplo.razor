@@ -1,0 +1,37 @@
+﻿@page "/linqexemplo"
+
+@using LivroCSharp.MinhasClasses
+
+<h1 class="text-center p-3">Linq Exemplos</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Departamento</th>
+			<th>Gênero</th>
+			<th>Salário</th>
+		</tr>
+	</thead>
+	@foreach (Funcionario f in Funcionarios)
+	{
+		<tr>
+			<td>@f.Nome</td>
+			<td>@f.Departamento</td>
+			<td>@f.Genero</td>
+			<td>@f.Salario</td>
+		</tr>
+	}
+</table>
+
+@code {
+
+	protected BancoDados MeuBanco = new BancoDados();
+	protected List<Funcionario> Funcionarios { get; set; }
+
+	protected override void OnInitialized()
+	{
+		Funcionarios = MeuBanco.Funcionarios.ToList();
+	}
+
+}
