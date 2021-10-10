@@ -2,7 +2,7 @@
 
 @using LivroCSharp.MinhasClasses
 
-<h2 class="text-center p-3">Lista de Funcionários</h2>
+<h2 class="text-center p-2">Lista de Funcionários</h2>
 
 <select name="select" @onchange="Selecionar" class="form-control">
 	<option value="Todos">Todos</option>
@@ -13,7 +13,7 @@
 </select>
 
 <table class="table">
-	
+
 	<thead>
 		<tr>
 			<th>Nome</th>
@@ -23,15 +23,37 @@
 		</tr>
 	</thead>
 
-	@foreach (Funcionario f in Funcionarios)
+	@if (Funcionarios != null)
 	{
-		<tr>
-			<td>@f.Nome</td>
-			<td>@f.Departamento</td>
-			<td>@f.Genero</td>
-			<td>@f.Salario</td>
-		</tr>
+		foreach (Funcionario f in Funcionarios)
+		{
+			<tr>
+				<td>@f.Nome</td>
+				<td>@f.Departamento</td>
+				<td>@f.Genero</td>
+				<td class="text-right">
+					@f.Salario.ToString("c")
+				</td>
+			</tr>
+		}
 	}
+
+	<tr>
+		<td></td>
+		<td></td>
+		<td class="text-right">TOTAL</td>
+		<td class="text-right font-weight-bolder">
+			@TotalSalario.ToString("c")
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td class="text-right">FUNCIONÁRIOS</td>
+		<td class="font-weight-bolder">
+			@TotalFuncionarios
+		</td>
+	</tr>
 
 </table>
 
@@ -40,13 +62,12 @@
 	protected BancoDados MeuBanco = new BancoDados();
 	protected List<Funcionario> Funcionarios { get; set; }
 	protected List<string> Departamentos { get; set; }
+	protected int TotalFuncionarios { get; set; }
+	protected decimal TotalSalario { get; set; }
 
 
 	protected override void OnInitialized()
 	{
-		Funcionarios = MeuBanco.Funcionarios
-						.ToList();
-
 		Departamentos = MeuBanco.Funcionarios
 						.Select(s => s.Departamento)
 						.Distinct()
@@ -60,14 +81,17 @@
 		if (opcao.Equals("Todos"))
 		{
 			Funcionarios = MeuBanco.Funcionarios
-						.ToList();
+							.ToList();
 		}
 		else
 		{
 			Funcionarios = MeuBanco.Funcionarios
-						.Where(w => w.Departamento.Equals(opcao))
-						.ToList();
+							.Where(w => w.Departamento.Equals(opcao))
+							.ToList();
 		}
+
+		TotalFuncionarios = Funcionarios.Count;
+		TotalSalario = Funcionarios.Sum(s => s.Salario);
 
 	}
 
