@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LivroCSharp.MinhasClasses
+﻿namespace LivroCSharp.MinhasClasses
 {
 	public interface IJogos
 	{
-		public int Aposta { get; set; }
-		public bool Acertou { get; }
+		/* Propriedade para gardar a aposta */
+		protected int Aposta { get; }
 
+		/* Envia um número para aposta */
+		public void Apostar(int aposta);
+
+		/* Executa o jogo */
 		public void Jogar();
+
+		/* True para Acertou e False para não acertou */
+		public bool PegarResultado();
 
 	}
 }
