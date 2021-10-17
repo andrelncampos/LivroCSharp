@@ -3,13 +3,8 @@ using System.Collections.Generic;
 
 namespace LivroCSharp.MinhasClasses
 {
-	public class JogoTeste : IList
+	public class JogoTeste
 	{
-		List<string> x;
-
-
-		int IJogos.Aposta => throw new System.NotImplementedException();
-
 		public void Apostar(int aposta)
 		{
 			throw new System.NotImplementedException();
