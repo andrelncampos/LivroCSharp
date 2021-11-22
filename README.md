@@ -10,7 +10,7 @@ Você tem dois grandes apoios para aprender C# com o livro C# START:
 
 2) Uma playlist no YouTube que vai te ajudar com vídeos de apoio ao conteúdo do livro, mostrando na prática como as páginas do livro podem se tornar realidade. Visite esta playlist: https://youtube.com/playlist?list=PL8Tes0ciwiaRTM48U0pnOYr_z8gqQXMPf
 
-Você está no caminho certo. Agora, só depende de você. Leia! Assista aos vídeos! Pratique! E seja bem vendo ao mercado dos desenvoledores C#!
+Você está no caminho certo. Agora, só depende de você. Leia! Assista aos vídeos! Pratique! E seja bem vindo ao mercado dos desenvolvedores C#!
 
 ## Ainda não comprou?
 
