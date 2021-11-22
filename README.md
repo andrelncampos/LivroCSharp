@@ -6,7 +6,7 @@ Parabéns por ter comprado o livro C# START, na Amazon. E é muito bom ter você
 
 Você tem dois grandes apoios para aprender C# com o livro C# START:
 
-1) Este repositório no GitHub com os códigos fonte apresentandos no livro e até com alguns códigos que serão adicionados ao longo do tempo;
+1) Este repositório no GitHub com os códigos fonte apresentados no livro e até com alguns códigos que serão adicionados ao longo do tempo;
 
 2) Uma playlist no YouTube que vai te ajudar com vídeos de apoio ao conteúdo do livro, mostrando na prática como as páginas do livro podem se tornar realidade. Visite esta playlist: https://youtube.com/playlist?list=PL8Tes0ciwiaRTM48U0pnOYr_z8gqQXMPf
 
